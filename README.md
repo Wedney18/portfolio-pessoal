@@ -29,14 +29,14 @@ npm install
 npm start
 ```
 # Endpoints da API
-#Base URL
+# Base URL
 http://localhost:3001
 
 
 # Endpoints Disponíveis
 • GET /Informações da API           
-• POST /donors Adicionar novo doador
-• GET /donors - Listar todos os doadores
+• POST /donors Adicionar novo doador              
+• GET /donors - Listar todos os doadores               
 • DELETE /donors/{id} - Remover doador
 
 
