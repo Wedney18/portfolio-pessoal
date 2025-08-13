@@ -17,7 +17,7 @@ API REST  para gerenciamento de informações de doadores de sangue para um hosp
 
 ## 🔧 Instalação
 
-1. Clone o repositório
+1. Clone o repositório em: https://github.com/Wedney18/portfolio-pessoal.git
 2. Instale as dependências:
 ```bash
 npm install
