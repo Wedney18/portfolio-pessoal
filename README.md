@@ -43,8 +43,8 @@ npm test
 ```
 
 # Endpoints da API
-Base URL
-http://localhost:3001
+# Base URL
+`http://localhost:3001`
 
 
 # Endpoints Disponíveis
