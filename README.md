@@ -31,6 +31,11 @@ Chai - Biblioteca de asserções (ou "afirmações") para JavaScript
 npm install
 ```
 
+#Instalação das dependências de teste
+Se ainda não instalou as dependências de desenvolvimento para testes, execute:
+
+`npm install --save-dev mocha@11.7.1 chai@4.3.6 supertest@7.1.3`
+
 ## 🏃‍♂️ Como executar os testes
 
 1. Certifique-se de que a API está rodando em um terminal:
