@@ -83,9 +83,9 @@ src/
 ## Observações Importantes
 ⚠️ ATENÇÃO: Esta API é destinada apenas para estudos de teste de software. Não utilize em ambiente de produção.
 
-Dados armazenados em memória (não persistem após reinicialização)
-Sem validações robustas de produção
-Configurações de segurança básicas para demonstração
+• Dados armazenados em memória (não persistem após reinicialização)                                                                                                                        
+• Sem validações robustas de produção                                                                                                                                                      
+• Configurações de segurança básicas para demonstração                             
 
 ## 📄 Licença
 
