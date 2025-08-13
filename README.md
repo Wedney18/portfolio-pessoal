@@ -42,7 +42,6 @@ npm start
 npm test
 ```
 
-
 # Endpoints da API
 # Base URL
 http://localhost:3001
