@@ -42,10 +42,10 @@ http://localhost:3001
 
 
 # Endpoints Disponíveis
-• GET /Informações da API           
-• POST /donors Adicionar novo doador              
-• GET /donors - Listar todos os doadores               
-• DELETE /donors/{id} - Remover doador
+• `GET /Informações da API`           
+• `POST /donors Adicionar novo doador`              
+• `GET /donors - Listar todos os doadores`               
+• `DELETE /donors/{id} - Remover doador`
 
 
 ## 📚 Documentação
