@@ -1,0 +1,21 @@
+{
+  "name": "blood-donor-api",
+  "version": "1.0.0",
+  "description": "A REST API to manage a blood donor control system for a hospital.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "mocha ./test/**/*.test.js --timeout=80000"
+  },
+  "dependencies": {
+    "chai": "^5.2.1",
+    "express": "^4.17.1",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.1",
+    "supertest": "^7.1.4"
+  },
+  "author": "",
+  "license": "ISC"
+}

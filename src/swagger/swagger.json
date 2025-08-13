@@ -1,0 +1,295 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API para gerenciamento de informações de doadores de sangue para um hospital.<br/><style>.dropdown{font-family:Arial,sans-serif;font-size:14px;padding:6px 12px;border:1px solid #ccc;border-radius:4px;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-color:white;background-image:url(\"data:image/svg+xml;utf8,<svg fill='black' height='14' viewBox='0 0 24 24' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>\");background-repeat:no-repeat;background-position:right 8px center;background-size:14px;padding-right:30px;}</style><div style='margin-top:16px;display:block;'><span style='font-weight:bold; display:block; margin-bottom:8px;'>Servers</span><select class='dropdown'><option selected>http://localhost:3000 - Servidor local de desenvolvimento</option></select></div>",
+    "version": "1.0.0",
+    "title": "API de Controle de Doadores de Sangue"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "servidor": [
+    "http"
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Servidor de Desenvolvimento Local"
+    },
+    {
+      "url": "https://api-doador-sangue.herokuapp.com/api",
+      "description": "Servidor de Produção"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Informações da API",
+        "description": "Retorna informações sobre a API e endpoints disponíveis.",
+        "responses": {
+          "200": {
+            "description": "Informações da API retornadas com sucesso",
+            "schema": {
+              "$ref": "#/definitions/InformacoesAPI"
+            }
+          }
+        }
+      }
+    },
+    "/donors": {
+      "post": {
+        "summary": "Adicionar novo doador",
+        "description": "Adiciona um novo doador ao sistema com validação de dados.",
+        "parameters": [
+          {
+            "name": "doador",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DoadorEntrada"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Doador criado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/RespostaSucesso"
+            }
+          },
+          "400": {
+            "description": "Dados inválidos",
+            "schema": {
+              "$ref": "#/definitions/RespostaErro"
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Listar todos os doadores",
+        "description": "Retorna uma lista de doadores categorizados por tipo sanguíneo com possibilidade de filtros.",
+        "parameters": [
+          {
+            "name": "bloodType",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Filtrar por tipo sanguíneo (A+, A-, B+, B-, AB+, AB-, O+, O-)",
+            "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Filtrar por nome (busca parcial)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de doadores retornada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/RespostaListaDoadores"
+            }
+          },
+          "404": {
+            "description": "Nenhum doador encontrado com os critérios especificados",
+            "schema": {
+              "$ref": "#/definitions/RespostaErro"
+            }
+          }
+        }
+      }
+    },
+    "/donors/{id}": {
+      "delete": {
+        "summary": "Remover doador",
+        "description": "Remove um doador do sistema pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID do doador (aceita qualquer valor)",
+            "allowEmptyValue": true,
+            "allowReserved": true,
+            "x-ms-parameter-location": "path",
+            "x-ms-skip-url-encoding": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Doador removido com sucesso",
+            "schema": {
+              "$ref": "#/definitions/RespostaSucesso"
+            }
+          },
+          "404": {
+            "description": "Doador não encontrado",
+            "schema": {
+              "$ref": "#/definitions/RespostaErro"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DoadorEntrada": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Nome completo do doador",
+          "example": "João Silva"
+        },
+        "bloodType": {
+          "type": "string",
+          "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+          "description": "Tipo sanguíneo do doador",
+          "example": "A+"
+        },
+        "contactInfo": {
+          "type": "string",
+          "description": "Informações de contato do doador",
+          "example": "(11) 99999-9999"
+        }
+      },
+      "required": ["name", "bloodType", "contactInfo"]
+    },
+    "Doador": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID único do doador",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "description": "Nome completo do doador",
+          "example": "João Silva"
+        },
+        "bloodType": {
+          "type": "string",
+          "description": "Tipo sanguíneo do doador",
+          "example": "A+"
+        },
+        "contactInfo": {
+          "type": "string",
+          "description": "Informações de contato do doador",
+          "example": "(11) 99999-9999"
+        }
+      }
+    },
+    "RespostaSucesso": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true,
+          "description": "Indica se a operação foi bem-sucedida"
+        },
+        "message": {
+          "type": "string",
+          "description": "Mensagem de sucesso",
+          "example": "Doador adicionado com sucesso"
+        },
+        "data": {
+          "type": "object",
+          "description": "Dados da resposta"
+        }
+      }
+    },
+    "RespostaListaDoadores": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true,
+          "description": "Indica se a operação foi bem-sucedida"
+        },
+        "message": {
+          "type": "string",
+          "description": "Mensagem de sucesso",
+          "example": "Doadores listados com sucesso"
+        },
+        "data": {
+          "type": "object",
+          "description": "Doadores categorizados por tipo sanguíneo",
+          "example": {
+            "A+": [
+              {
+                "id": 1,
+                "name": "João Silva",
+                "bloodType": "A+",
+                "contactInfo": "(11) 99999-9999"
+              }
+            ]
+          }
+        },
+        "total": {
+          "type": "integer",
+          "description": "Total de doadores encontrados",
+          "example": 1
+        },
+        "filtros": {
+          "type": "object",
+          "description": "Filtros aplicados na busca",
+          "example": {
+            "bloodType": "A+",
+            "name": "João"
+          }
+        }
+      }
+    },
+    "RespostaErro": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": false,
+          "description": "Indica se a operação foi bem-sucedida"
+        },
+        "message": {
+          "type": "string",
+          "description": "Mensagem de erro",
+          "example": "Todos os campos são obrigatórios"
+        },
+        "error": {
+          "type": "string",
+          "description": "Código do erro",
+          "example": "CAMPOS_OBRIGATORIOS_AUSENTES"
+        }
+      }
+    },
+    "InformacoesAPI": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "example": true,
+          "description": "Indica se a operação foi bem-sucedida"
+        },
+        "message": {
+          "type": "string",
+          "description": "Descrição da API",
+          "example": "API de Controle de Doadores de Sangue"
+        },
+        "version": {
+          "type": "string",
+          "description": "Versão da API",
+          "example": "1.0.0"
+        },
+        "endpoints": {
+          "type": "object",
+          "description": "Endpoints disponíveis",
+          "example": {
+            "doadores": "/api/donors",
+            "documentacao": "/api-docs"
+          }
+        }
+      }
+    }
+  }
+}
