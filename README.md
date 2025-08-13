@@ -10,12 +10,12 @@ API REST  para gerenciamento de informações de doadores de sangue para um hosp
 - ✅ Remover doador
 
 # Tecnologias Utilizadas
-Node.js - Runtime JavaScript 
-Express.js - Framework 
-Swagger - Documentação da API
-Mocha - Framework de testes para JavaScript
-Supertest - Biblioteca do Node.js usada principalmente para testar APIs HTTP de forma automatizada
-Chai - Biblioteca de asserções (ou "afirmações") para JavaScript
+Node.js - Runtime JavaScript                                                                                                             
+Express.js - Framework                                                                      
+Swagger - Documentação da API                                                                                                            
+Mocha - Framework de testes para JavaScript                                                                                              
+Supertest - Biblioteca do Node.js usada principalmente para testar APIs HTTP de forma automatizada                                       
+Chai - Biblioteca de asserções (ou "afirmações") para JavaScript                                                                         
 
 
 ## 📋 Pré-requisitos
