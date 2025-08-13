@@ -4,10 +4,10 @@ API REST  para gerenciamento de informações de doadores de sangue para um hosp
 
 ## 🚀 Funcionalidades
 
-- ✅ Adicionar novos doadores
-- ✅ Listar doadores por tipo sanguíneo
 - ✅ Informações da API
-- ✅ Remover doadores
+- ✅ Adicionar novos doadores
+- ✅ Listar todos os doadores
+- ✅ Remover doador
 
 
 ## 📋 Pré-requisitos
