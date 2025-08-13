@@ -24,7 +24,7 @@ Chai - Biblioteca de asserções (ou "afirmações") para JavaScript
 
 ## 🔧 Instalação
 
-1. Clone o repositório: `https://github.com/Wedney18/portfolio-pessoal.git`
+1. Clone o repositório: https://github.com/Wedney18/portfolio-pessoal.git
 2. Instale as dependências:
 ```bash
 npm install
