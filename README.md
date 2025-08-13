@@ -28,14 +28,16 @@ npm install
 ```bash
 npm start
 ```
-#Endpoints da API
-Base URL
+# Endpoints da API
+# Base URL
 http://localhost:3001
-Endpoints Disponíveis
-GET /Informações da API
-POST /donors Adicionar novo doador
-GET /donors - Listar todos os doadores
-DELETE /donors/{id} - Remover doador
+
+
+# Endpoints Disponíveis
+• GET /Informações da API
+• POST /donors Adicionar novo doador
+• GET /donors - Listar todos os doadores
+• DELETE /donors/{id} - Remover doador
 
 
 ## 📚 Documentação
