@@ -21,7 +21,6 @@ Chai - Biblioteca de asserções (ou "afirmações") para JavaScript
 ## 📋 Pré-requisitos
 
 - Node.js (versão 14 ou superior)
-- npm ou yarn
 
 ## 🔧 Instalação
 
