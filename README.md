@@ -1,6 +1,6 @@
 # API de Controle de Doadores de Sangue
 
-API RESTful para gerenciamento de informações de doadores de sangue para um hospital.
+API REST  para gerenciamento de informações de doadores de sangue para um hospital.
 
 ## 🚀 Funcionalidades
 
